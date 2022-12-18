@@ -16,7 +16,7 @@ class EmploymentController extends Controller
         }
         else
         {
-            $pegawai = Employment::paginate(5);
+            $pegawai = Employment::paginate(10);
         }
         return view('pegawai.index',compact('pegawai'));
     }

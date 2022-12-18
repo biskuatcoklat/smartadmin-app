@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EmploymentController;
+use App\Http\Controllers\LoginController;
+use App\Models\Employment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jumlahpegawai = Employment::count();
+    $jumlahpegawailaki = Employment::where('jenis_kelamin','Laki-Laki')->count();
+    $jumlahpegawaiperempuan = Employment::where('jenis_kelamin','Perempuan')->count();
+    return view('welcome',compact('jumlahpegawai','jumlahpegawailaki','jumlahpegawaiperempuan'));
 });
 
 Route::get('/karyawan',[EmploymentController::class,'index'])->name('karyawan');
@@ -25,3 +30,9 @@ Route::get('/editdata/{id}',[EmploymentController::class,'edit']);
 Route::post('/updatedata/{id}',[EmploymentController::class,'update']);
 Route::get('/delete/{id}',[EmploymentController::class,'destroy']);
 Route::get('/exportpdf',[EmploymentController::class,'exportpdf']);
+
+Route::get('/login',[LoginController::class,'login']);
+Route::post('/loginlogic',[LoginController::class,'loginlogic']);
+
+Route::get('/register',[LoginController::class,'register']);
+Route::post('/registeruser',[LoginController::class,'registeruser']);
