@@ -8,21 +8,10 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="/registeruser" method="POST">
+        <form action="/registeruser" method="post">
             @csrf
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3" style="font-width:bold">Register</p><br><br>
-            {{-- <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
-            </button> --}}
           </div>
 
 
@@ -30,28 +19,21 @@
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" name="name" class="form-control form-control-lg"
               placeholder="Enter Your Name" />
-            <label class="form-label" for="form3Example3">Nama</label>
           </div>
 
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" name="email" class="form-control form-control-lg"
               placeholder="Enter a valid email address" />
-            <label class="form-label" for="form3Example3">Email address</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" name="email" class="form-control form-control-lg"
+            <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
               placeholder="Enter password" />
-            <label class="form-label" for="form3Example4">Password</label>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
+            <button type="submit" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
           </div>
 

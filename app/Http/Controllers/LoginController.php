@@ -20,7 +20,10 @@ class LoginController extends Controller
         {
             return redirect('/');
         }
-        return view('pegawai.login');
+        else
+        {
+            return redirect('/login');
+        }
     }
 
     public function register()
@@ -30,15 +33,19 @@ class LoginController extends Controller
 
     public function registeruser(Request $request)
     {
-        // User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => bcrypt($request->password),
-        //     'remember_token' => Str::random(60)
-        // ]);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60)
+        ]);
 
-        dd($request->all());
+        return redirect('/login');
+    }
 
-        // return redirect('/login');
+    public function logout()
+    {
+        Auth::logout();
+        return \redirect('login');
     }
 }

@@ -21,9 +21,9 @@ Route::get('/', function () {
     $jumlahpegawailaki = Employment::where('jenis_kelamin','Laki-Laki')->count();
     $jumlahpegawaiperempuan = Employment::where('jenis_kelamin','Perempuan')->count();
     return view('welcome',compact('jumlahpegawai','jumlahpegawailaki','jumlahpegawaiperempuan'));
-});
+})->middleware('auth');
 
-Route::get('/karyawan',[EmploymentController::class,'index'])->name('karyawan');
+Route::get('/karyawan',[EmploymentController::class,'index'])->name('karyawan')->middleware('auth');
 Route::get('/createpegawai',[EmploymentController::class,'createpegawai']);
 Route::post('/savedata',[EmploymentController::class,'store']);
 Route::get('/editdata/{id}',[EmploymentController::class,'edit']);
@@ -36,3 +36,7 @@ Route::post('/loginlogic',[LoginController::class,'loginlogic']);
 
 Route::get('/register',[LoginController::class,'register']);
 Route::post('/registeruser',[LoginController::class,'registeruser']);
+
+Route::get('/logout',[LoginController::class,'logout']);
+
+
