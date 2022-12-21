@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view('pegawai.login');
+        return view('login');
     }
 
     public function loginlogic(Request $request)
@@ -20,15 +20,14 @@ class LoginController extends Controller
         {
             return redirect('/');
         }
-        else
-        {
-            return redirect('/login');
-        }
+        return view('/login');
+
     }
 
     public function register()
     {
         return view('pegawai.register');
+
     }
 
     public function registeruser(Request $request)

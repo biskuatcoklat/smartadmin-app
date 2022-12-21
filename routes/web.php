@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Models\Employment;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::post('/updatedata/{id}',[EmploymentController::class,'update']);
 Route::get('/delete/{id}',[EmploymentController::class,'destroy']);
 Route::get('/exportpdf',[EmploymentController::class,'exportpdf']);
 
+
 Route::get('/login',[LoginController::class,'login']);
 Route::post('/loginlogic',[LoginController::class,'loginlogic']);
 
@@ -38,5 +40,3 @@ Route::get('/register',[LoginController::class,'register']);
 Route::post('/registeruser',[LoginController::class,'registeruser']);
 
 Route::get('/logout',[LoginController::class,'logout']);
-
-
