@@ -18,6 +18,10 @@ class EmploymentController extends Controller
         {
             $pegawai = Employment::paginate(10);
         }
+
+        return response()->json([
+            'employments'=>$pegawai
+        ]);
         return view('pegawai.index',compact('pegawai'));
     }
     public function createpegawai()
@@ -33,23 +37,35 @@ class EmploymentController extends Controller
             $pegawai->foto= $request->file('foto')->getClientOriginalName();
             $pegawai->save();
         }
+        return response()->json([
+            'employments'=>$pegawai
+        ]);
         return redirect('/karyawan')->with('success','Data Berhasil Di Simpan');
     }
     public function edit($id)
     {
         $pegawai = Employment::find($id);
+        return response()->json([
+            'employments'=>$pegawai
+        ]);
         return view('pegawai.editdata',compact('pegawai'));
     }
     public function update(Request $request, $id)
     {
         $pegawai = Employment::find($id);
         $pegawai->update($request->all());
+        return response()->json([
+            'employments'=>$pegawai
+        ]);
         return redirect('/karyawan')->with('success','Data Berhasil Di Update');
     }
     public function destroy($id)
     {
         $pegawai = Employment::find($id);
         $pegawai->delete();
+        return response()->json([
+            'message'=>'pegawai hapus'
+        ],204);
         return redirect('/karyawan')->with('success','Data Berhasil hapus');
     }
     public function exportpdf()
